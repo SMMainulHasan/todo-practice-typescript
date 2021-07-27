@@ -1,0 +1,35 @@
+.container {
+  max-width: 400px;
+  background: rgb(174, 243, 205);
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+  min-height: 90vh;
+  margin-top: 10px;
+  color: rgb(88, 87, 87);
+  padding: 10px 50px 30px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.add {
+  height: 2rem;
+  background: rgb(136, 179, 158);
+  border-radius: 0.5rem;
+  align-self: flex-end;
+  width: 100%;
+}
+button {
+  height: 2rem;
+}
+img {
+  height: 100%;
+  transform: rotate(-90deg);
+}
+input {
+  height: 100%;
+  direction: none;
+}
+p {
+  color: rgb(85, 112, 100);
+}
