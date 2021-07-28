@@ -1,35 +1,83 @@
 .container {
   max-width: 400px;
-  background: rgb(174, 243, 205);
+  min-width: 200px;
+  background: #35363a;
   border-radius: 20px;
   margin: auto;
   text-align: center;
   min-height: 90vh;
   margin-top: 10px;
-  color: rgb(88, 87, 87);
+  color: #ffffff;
   padding: 10px 50px 30px 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .add {
+  display: felx;
   height: 2rem;
-  background: rgb(136, 179, 158);
+  background: #696969;
   border-radius: 0.5rem;
   align-self: flex-end;
   width: 100%;
+  position: relative;
+  justify-content: flex-end;
 }
-button {
+.add button {
+  position: absolute;
+  right: 0;
+  border: none;
   height: 2rem;
+  width: 10%;
+  background: transparent;
+  border-left: 2px solid #35363a;
 }
-img {
-  height: 100%;
+.add img {
+  height: 70%;
   transform: rotate(-90deg);
 }
-input {
+input,
+input:focus {
   height: 100%;
-  direction: none;
+  background: transparent;
+  color: #c4c4c4;
+  width: 80%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 25px;
+  outline: none;
+  font-size: 1.125rem;
 }
 p {
-  color: rgb(85, 112, 100);
+  color: #e2e1e1;
+}
+input::placeholder {
+  color: rgb(202, 199, 199);
+}
+.task-list {
+  text-align: left;
+}
+.todo-tile {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 0.5rem;
+  background: #555555;
+}
+.group button {
+  border: none;
+  background: none;
+  margin-right: 10px;
+}
+.remove:hover {
+  cursor: pointer;
+}
+.group {
+  display: flex;
+  width: 100%;
+}
+.group img {
+  width: 25px;
 }

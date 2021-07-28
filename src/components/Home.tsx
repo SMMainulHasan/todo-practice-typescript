@@ -5,10 +5,17 @@ import TodoTile from "./TodoTile";
 
 interface ITodo {
   name: string;
-  state: boolean;
+  done: boolean;
 }
 
 const Home = () => {
+  const complete = (name: string, done: boolean) => {
+    const todos = todoList.filter((elm) => elm.name !== name);
+    setTodoList([...todos, { name: name, done: !done }]);
+  };
+  const remove = (name: string) => {
+    setTodoList(todoList.filter((elm) => elm.name !== name));
+  };
   const [todo, setTodo] = useState<ITodo>({} as ITodo);
   const [todoList, setTodoList] = useState<ITodo[]>([]);
 
@@ -16,22 +23,30 @@ const Home = () => {
     <div className="container">
       <div>
         <h1>Tasks</h1>
-        {todoList.map((todo) => (
-          <TodoTile key={todo.name} name={todo.name} state={todo.state} />
-        ))}
+        <div className="task-list">
+          {todoList.map((todo) => (
+            <TodoTile
+              key={todo.name}
+              name={todo.name}
+              done={todo.done}
+              complete={complete}
+              remove={remove}
+            />
+          ))}
+        </div>
       </div>
       <div className="add">
         <input
           name="name"
-          onChange={(e) => setTodo({ name: e.target.value, state: false })}
+          onChange={(e) => setTodo({ name: e.target.value, done: false })}
           placeholder="Add a task"
           type="text"
           value={todo.name}
         />
         <button
           onClick={() => {
-            setTodoList([...todoList, todo]);
-            setTodo({ name: "", state: false });
+            setTodoList([todo, ...todoList]);
+            setTodo({ name: "", done: false });
           }}
         >
           <img src={arrow} alt="" />
